@@ -1,1 +1,4 @@
-# Avalia-o-dev-ops-
+## **Integrantes do grupo:**
+- Luiza Pincitori
+- Gustavo Fileni
+  
