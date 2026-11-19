@@ -2,7 +2,7 @@
 
 ## Integrantes do grupo
 - Gustavo Henrique Fileni — RA 24001012
-- Luisa Pincitori Souza de F. Costa — RA 24002130
+- Luiza Pincitori Souza de F. Costa — RA 24002130
 
 ## Arquitetura
 | VM | Serviços (Docker) |
