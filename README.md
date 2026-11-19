@@ -10,9 +10,6 @@
 | VM1 | Nginx servindo HTML/JS (porta 80) |
 | VM2 | API Node.js/Express (porta 3000) + MySQL 8 |
 
-OpenTofu (provider libvirt/KVM) cria as VMs → cloud-init instala o Docker → Ansible implanta os contêineres.
-O navegador carrega a página da VM1 e faz `fetch` direto para a API da VM2 (CORS liberado para a origem da VM1, métodos GET, POST e OPTIONS).
-
 
 ## Como executar
 ```bash
