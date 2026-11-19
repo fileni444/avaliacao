@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: cursos-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: cursos_db
+      MYSQL_USER: cursos
+      MYSQL_PASSWORD: cursospass
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  api:
+    build: .
+    container_name: cursos-api
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: cursos
+      DB_PASSWORD: cursospass
+      DB_NAME: cursos_db
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+
+volumes:
+  db_data:
